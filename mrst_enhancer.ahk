@@ -1,4 +1,4 @@
-; ----------------------------------------------------------------
+﻿; ----------------------------------------------------------------
 ; | mrst_enhancer.ahk |
 ; ---------------------
 ; AndApp版メルストをもう少し便利にするために,
@@ -55,11 +55,11 @@
 CoordMode, Mouse, Client
 
 ; autohotkey.exeを終了.
-0::
+@::
   ExitApp
 
 ; このファイルのリロード（編集用）.
-2::
+0::
   Reload
   return
 
@@ -75,31 +75,33 @@ CoordMode, Mouse, Client
   Click 1120, 470
   return
 
+7::
+  Click 1120, 470
+  Sleep 70
+  Click 1120, 470
+  return
+
 ; Push to 刻み.
-~a up::
-  Sleep, 100
-  Send, a
-  return
-
-~s up::
-  Sleep, 100
-  Send, s
-  return
-
-~d up::
-  Sleep, 100
-  Send, d
-  return
-
-~f up::
-  Sleep, 100
-  Send, f
-  return
-
-~g up::
-  Sleep, 100
-  Send, g
-  return
+;~a up::
+;  Sleep, 20
+;  Send, a
+;  return
+;~s up::
+;  Sleep, 100
+;  Send, s
+;  return
+;~d up::
+;  Sleep, 100
+;  Send, d
+;  return
+;~f up::
+;  Sleep, 100
+;  Send, f
+;  return
+;~g up::
+;  Sleep, 100
+;  Send, g
+;  return
 
 ; 癒力ボタン.
 Space::
@@ -118,36 +120,88 @@ x::
   MouseClickDrag, LEFT, 1150, 650, 1150, 580
   return
 
-; 救援長押し.
-c::
-  Click 1050, 600, D
-  Loop{
-    GetKeyState, state, c, P
-    If state = U 
-      break
-    Sleep 50
-  }
-  return
-
-c up::
-  Sleep 100
-  Click 1050, 600, U
-  return
-
 ; シード5発動.
 u::
   Send y
   Sleep 300
+  ;Send qwert
   Send qwert
   Sleep 300
   Send y
   return
 
+i::
+  Send y
+  Sleep 300
+  ;Send qwert
+  Send qwert
+  sleep 6200
+  Send qwert
+  sleep 6200
+  Send qwert
+  sleep 6200
+  Send qwert
+  sleep 6200
+  Send qwert
+  Sleep 300
+  Send y
+  return
 ; 刻み5.
 v::
   Send asdfg
-  Sleep 30
+  Sleep 35
   Send asdfg
   return
+
+; レイド協力.
+1::
+  click 160, 80 ; stop button.
+  return
+2::
+  click 900, 570 ; Tettai button.
+  return
+3::
+  click 800, 520 ; yes button.
+  return
+4::
+  click 620, 520 ; ok button.
+  return
+j::
+  click 1100, 670 ; open log
+  return
+k::
+  Click 1050, 200 ; Kyouryoku above
+  return
+l::
+  Click 1050, 410 ; Kyouryoku below
+  return
+n::
+  click 200, 250 ; normal
+  return
+m::
+  click 570, 320 ; very hard
+  return
+,::
+  click 850, 550 ; Quest start
+  return
+.::
+  click 400, 540 ; syutugeki button
+  return
+
+; 救援長押し.
+;c::
+;  Click 1050, 600, D
+;  Loop{
+;    GetKeyState, state, c, P
+;    If state = U 
+;      break
+;    Sleep 50
+;  }
+;  return
+
+;c up::
+;  Sleep 100
+;  Click 1050, 600, U
+;  return
 
 #IfWinActive
